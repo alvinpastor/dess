@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>School Registrar System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-icon">SR</div>
+      <div><strong>Registrar</strong><small>Management System</small></div>
+    </div>
+    <nav>
+      <button class="nav-link active" data-view="dashboard"><span>▦</span> Dashboard</button>
+      <button class="nav-link" data-view="students"><span>♙</span> Student Records</button>
+      <button class="nav-link" data-view="add"><span>＋</span> Register Student</button>
+    </nav>
+    <div class="sidebar-bottom">
+      <div class="avatar">AD</div>
+      <div><strong>Administrator</strong><small>Registrar Office</small></div>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">SCHOOL ADMINISTRATION</p>
+        <h1 id="page-title">Dashboard</h1>
+      </div>
+      <div class="topbar-right"><span class="status-dot"></span> Academic Year 2026–2027</div>
+    </header>
+
+    <section class="view" id="dashboard-view">
+      <div class="welcome">
+        <div><p class="eyebrow light">REGISTRAR OVERVIEW</p><h2>Welcome back, Administrator</h2>
+        <p>Here’s a summary of your student records.</p></div>
+        <button class="primary-button" data-go="add">＋ Register Student</button>
+      </div>
+      <div class="stats-grid">
+        <article class="stat-card"><div class="stat-top"><span>Total Students</span><span class="stat-icon blue">♙</span></div><strong id="total-count">0</strong><small>All registered records</small></article>
+        <article class="stat-card"><div class="stat-top"><span>Enrolled</span><span class="stat-icon green">✓</span></div><strong id="enrolled-count">0</strong><small>Currently enrolled</small></article>
+        <article class="stat-card"><div class="stat-top"><span>Pending</span><span class="stat-icon orange">◷</span></div><strong id="pending-count">0</strong><small>Awaiting confirmation</small></article>
+        <article class="stat-card"><div class="stat-top"><span>Not Enrolled</span><span class="stat-icon red">–</span></div><strong id="not-enrolled-count">0</strong><small>Not currently enrolled</small></article>
+      </div>
+      <section class="panel">
+        <div class="panel-heading"><div><h3>Recent Student Records</h3><p>Latest students added to the system</p></div><button class="text-button" data-go="students">View all →</button></div>
+        <div class="table-wrap"><table><thead><tr><th>STUDENT</th><th>STUDENT ID</th><th>COURSE</th><th>YEAR</th><th>STATUS</th></tr></thead><tbody id="recent-table"></tbody></table></div>
+        <p class="empty-state" id="recent-empty">No student records yet. Register a student to get started.</p>
+      </section>
+    </section>
+
+    <section class="view hidden" id="students-view">
+      <section class="panel">
+        <div class="panel-heading records-heading"><div><h3>Student Records</h3><p>Search and manage registered students.</p></div><button class="primary-button" data-go="add">＋ Add Student</button></div>
+        <div class="toolbar">
+          <label class="search-box">⌕ <input id="search-input" type="search" placeholder="Search name, ID, or course..."></label>
+          <select id="status-filter" aria-label="Filter by enrollment status"><option value="">All statuses</option><option>Enrolled</option><option>Pending</option><option>Not Enrolled</option></select>
+        </div>
+        <div class="table-wrap"><table><thead><tr><th>STUDENT</th><th>STUDENT ID</th><th>COURSE</th><th>YEAR</th><th>STATUS</th><th>ACTIONS</th></tr></thead><tbody id="students-table"></tbody></table></div>
+        <p class="empty-state" id="students-empty">No matching student records found.</p>
+      </section>
+    </section>
+
+    <section class="view hidden" id="add-view">
+      <section class="panel form-panel">
+        <div class="panel-heading"><div><h3 id="form-title">Register New Student</h3><p>Enter the student's information below.</p></div></div>
+        <form id="student-form">
+          <input type="hidden" id="editing-id">
+          <div class="form-grid">
+            <label>Student ID <span>*</span><input id="student-id" required maxlength="30" placeholder="e.g. 2026-0001"></label>
+            <label>Full Name <span>*</span><input id="full-name" required maxlength="100" placeholder="Enter full name"></label>
+            <label>Email Address<input id="email" type="email" maxlength="120" placeholder="student@example.com"></label>
+            <label>Contact Number<input id="phone" type="tel" maxlength="30" placeholder="Enter contact number"></label>
+            <label>Course / Program <span>*</span><select id="course" required><option value="">Select course</option><option>BSIS</option><option>BSIT</option><option>BSCS</option><option>BSBA</option><option>BS Education</option><option>Other</option></select></label>
+            <label>Year Level <span>*</span><select id="year-level" required><option value="">Select year level</option><option>1st Year</option><option>2nd Year</option><option>3rd Year</option><option>4th Year</option><option>5th Year</option></select></label>
+            <label>Enrollment Status <span>*</span><select id="enrollment-status" required><option>Pending</option><option>Enrolled</option><option>Not Enrolled</option></select></label>
+            <label>Date Registered<input id="date-registered" type="date" required></label>
+          </div>
+          <div class="form-actions"><button type="button" class="secondary-button" id="cancel-button">Cancel</button><button type="submit" class="primary-button" id="save-button">Save Student</button></div>
+          <p id="form-message" class="form-message" role="status"></p>
+        </form>
+      </section>
+    </section>
+    <footer>School Registrar Management System <span>•</span> Front-end demo</footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

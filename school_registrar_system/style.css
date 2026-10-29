@@ -1,0 +1,743 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap');
+
+/* =========================
+   1. CSS VARIABLES & RESET
+========================= */
+:root {
+    --navy: #14243b;
+    --blue: #3269e8;
+    --text: #19263a;
+    --muted: #778397;
+    --line: #e8edf4;
+    --bg: #f5f7fb;
+    --white: #fff;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', Arial, sans-serif;
+    font-size: 14px;
+    display: flex;
+    min-height: 100vh;
+}
+
+/* =========================
+   2. SIDEBAR & BRAND
+========================= */
+.sidebar {
+    width: 248px;
+    background: var(--navy);
+    color: #fff;
+    position: fixed;
+    inset: 0 auto 0 0;
+    padding: 26px 16px;
+    display: flex;
+    flex-direction: column;
+    z-index: 2;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 10px 36px;
+}
+
+.brand-icon {
+    width: 42px;
+    height: 42px;
+    background: #477af0;
+    border-radius: 12px;
+    display: grid;
+    place-items: center;
+    font-family: Manrope, sans-serif;
+    font-weight: 800;
+    font-size: 16px;
+}
+
+.brand strong,
+.brand small,
+.sidebar-bottom strong,
+.sidebar-bottom small {
+    display: block;
+}
+
+.brand strong {
+    font-size: 16px;
+    letter-spacing: 0.1px;
+}
+
+.brand small {
+    font-size: 11px;
+    color: #aab7cc;
+    margin-top: 4px;
+}
+
+/* =========================
+   3. NAVIGATION
+========================= */
+nav {
+    display: grid;
+    gap: 7px;
+}
+
+.nav-link {
+    border: 0;
+    background: transparent;
+    color: #afbbcf;
+    text-align: left;
+    padding: 13px 14px;
+    border-radius: 9px;
+    font: 500 14px 'DM Sans', sans-serif;
+    cursor: pointer;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.nav-link span {
+    font-size: 18px;
+    width: 20px;
+    text-align: center;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    background: #263c5d;
+    color: #fff;
+}
+
+.nav-link.active {
+    box-shadow: inset 3px 0 #6b95ff;
+}
+
+/* =========================
+   4. SIDEBAR USER PROFILE
+========================= */
+.sidebar-bottom {
+    margin-top: auto;
+    border-top: 1px solid #2a3a52;
+    padding: 20px 8px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #dce7ff;
+    color: #2d56ac;
+    display: grid;
+    place-items: center;
+    font-weight: 700;
+}
+
+.sidebar-bottom strong {
+    font-size: 12px;
+}
+
+.sidebar-bottom small {
+    font-size: 11px;
+    color: #aab7cc;
+    margin-top: 4px;
+}
+
+/* =========================
+   5. MAIN CONTENT & HEADER
+========================= */
+.main {
+    margin-left: 248px;
+    width: calc(100% - 248px);
+    padding: 0 34px;
+    max-width: 1800px;
+}
+
+.topbar {
+    height: 102px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 28px;
+}
+
+.eyebrow {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    color: #8793a7;
+    font-weight: 700;
+    margin: 0 0 7px;
+}
+
+.topbar h1 {
+    font: 800 25px Manrope, sans-serif;
+    margin: 0;
+}
+
+.topbar-right {
+    color: #637187;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.status-dot {
+    width: 7px;
+    height: 7px;
+    background: #2fb47c;
+    border-radius: 50%;
+}
+
+/* =========================
+   6. WELCOME BANNER
+========================= */
+.welcome {
+    background: linear-gradient(115deg, #2855c7, #3979ed);
+    color: white;
+    padding: 25px 28px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    margin-bottom: 22px;
+    box-shadow: 0 9px 22px #3269e81c;
+}
+
+.welcome h2 {
+    font: 700 21px Manrope, sans-serif;
+    margin: 0 0 8px;
+}
+
+.welcome p:not(.eyebrow) {
+    color: #e0eaff;
+    margin: 0;
+    font-size: 13px;
+}
+
+.eyebrow.light {
+    color: #d3e0ff;
+}
+
+/* =========================
+   7. BUTTONS
+========================= */
+.primary-button,
+.secondary-button {
+    border: 0;
+    border-radius: 8px;
+    padding: 11px 16px;
+    font: 600 13px 'DM Sans', sans-serif;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.primary-button {
+    background: var(--blue);
+    color: #fff;
+}
+
+.primary-button:hover {
+    background: #2458d2;
+}
+
+.welcome .primary-button {
+    background: #fff;
+    color: #2859c9;
+}
+
+.welcome .primary-button:hover {
+    background: #edf2ff;
+}
+
+.secondary-button {
+    background: #f1f4f8;
+    color: #4d5a6e;
+}
+
+.text-button {
+    background: transparent;
+    border: 0;
+    color: var(--blue);
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.small-button {
+    border: 1px solid #dfe5ee;
+    background: #fff;
+    border-radius: 6px;
+    padding: 6px 9px;
+    color: #4c5c72;
+    cursor: pointer;
+    font-size: 11px;
+}
+
+.small-button:hover {
+    background: #f4f7ff;
+}
+
+.small-button.delete {
+    color: #c04e4e;
+}
+
+/* =========================
+   8. DASHBOARD STATISTICS
+========================= */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.stat-card,
+.panel {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+}
+
+.stat-card {
+    padding: 20px;
+}
+
+.stat-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #6d7a8e;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.stat-icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+    font-size: 17px;
+}
+
+.blue {
+    background: #eaf0ff;
+    color: #386ce4;
+}
+
+.green {
+    background: #e3f8ee;
+    color: #1b9b68;
+}
+
+.orange {
+    background: #fff2df;
+    color: #cf8a25;
+}
+
+.red {
+    background: #ffebeb;
+    color: #d45b5b;
+}
+
+.stat-card > strong {
+    display: block;
+    font: 800 29px Manrope, sans-serif;
+    margin: 14px 0 5px;
+}
+
+.stat-card > small {
+    font-size: 11px;
+    color: #929caf;
+}
+
+/* =========================
+   9. PANELS & TABLE HEADINGS
+========================= */
+.panel {
+    padding: 22px 22px 12px;
+}
+
+.panel-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.panel-heading h3 {
+    font: 700 16px Manrope, sans-serif;
+    margin: 0 0 6px;
+}
+
+.panel-heading p {
+    color: #8a95a7;
+    font-size: 12px;
+    margin: 0;
+}
+
+/* =========================
+   10. STUDENT TABLE
+========================= */
+.table-wrap {
+    overflow-x: auto;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    min-width: 650px;
+}
+
+th {
+    text-align: left;
+    background: #f8f9fc;
+    color: #8a95a7;
+    font-size: 10px;
+    letter-spacing: 0.65px;
+    font-weight: 700;
+    padding: 13px 12px;
+}
+
+td {
+    padding: 14px 12px;
+    border-bottom: 1px solid #edf0f5;
+    color: #4f5d72;
+    font-size: 12px;
+}
+
+tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+.student-cell {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 170px;
+}
+
+.student-avatar {
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    background: #edf2ff;
+    color: #386ce4;
+    display: grid;
+    place-items: center;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.student-name {
+    font-weight: 700;
+    color: #26354b;
+}
+
+.student-email {
+    font-size: 11px;
+    color: #9aa4b4;
+    margin-top: 4px;
+}
+
+.id-cell {
+    font-weight: 700;
+    color: #4a5b74;
+}
+
+.status {
+    display: inline-block;
+    padding: 5px 9px;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.status-enrolled {
+    background: #e4f8ed;
+    color: #198858;
+}
+
+.status-pending {
+    background: #fff3dc;
+    color: #b7791f;
+}
+
+.status-not-enrolled {
+    background: #ffe8e8;
+    color: #c04e4e;
+}
+
+.empty-state {
+    color: #909bad;
+    text-align: center;
+    padding: 24px 10px;
+    font-size: 12px;
+}
+
+.action-group {
+    display: flex;
+    gap: 7px;
+}
+
+/* =========================
+   11. SEARCH & FILTER TOOLBAR
+========================= */
+.toolbar {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid #dfe5ee;
+    border-radius: 8px;
+    padding: 0 12px;
+    max-width: 420px;
+    flex: 1;
+    color: #8a95a7;
+}
+
+.search-box input {
+    border: 0;
+    outline: 0;
+    width: 100%;
+    height: 40px;
+    font: 13px 'DM Sans', sans-serif;
+    background: transparent;
+}
+
+.toolbar select,
+.form-grid input,
+.form-grid select {
+    width: 100%;
+    border: 1px solid #dfe5ee;
+    background: #fff;
+    border-radius: 8px;
+    padding: 11px 12px;
+    color: #334258;
+    font: 13px 'DM Sans', sans-serif;
+    outline: none;
+}
+
+.toolbar select {
+    width: 160px;
+}
+
+.form-grid input:focus,
+.form-grid select:focus,
+.toolbar select:focus,
+.search-box:focus-within {
+    border-color: #7c9ff5;
+    box-shadow: 0 0 0 3px #3269e812;
+}
+
+/* =========================
+   12. STUDENT REGISTRATION FORM
+========================= */
+.form-panel {
+    max-width: 900px;
+    padding: 26px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.form-grid label {
+    font-size: 12px;
+    font-weight: 700;
+    color: #536177;
+    display: grid;
+    gap: 8px;
+}
+
+.form-grid label span {
+    color: #d84c4c;
+    display: inline;
+}
+
+.form-grid label:has(span) {
+    display: block;
+}
+
+.form-grid label input,
+.form-grid label select {
+    margin-top: 8px;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    border-top: 1px solid var(--line);
+    margin-top: 25px;
+    padding-top: 20px;
+}
+
+.form-message {
+    font-size: 12px;
+    color: #c04e4e;
+    min-height: 15px;
+    margin: 12px 0 0;
+}
+
+/* =========================
+   13. VISIBILITY & FOOTER
+========================= */
+.hidden {
+    display: none !important;
+}
+
+footer {
+    padding: 28px 0 18px;
+    text-align: center;
+    color: #9aa4b4;
+    font-size: 11px;
+}
+
+footer span {
+    padding: 0 5px;
+}
+
+/* =========================
+   14. RESPONSIVE DESIGN
+========================= */
+@media (max-width: 1100px) {
+    .main {
+        padding: 0 22px;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .sidebar {
+        width: 220px;
+    }
+
+    .main {
+        margin-left: 220px;
+        width: calc(100% - 220px);
+    }
+}
+
+@media (max-width: 700px) {
+    body {
+        display: block;
+    }
+
+    .sidebar {
+        position: static;
+        width: 100%;
+        padding: 14px;
+    }
+
+    .brand {
+        padding: 0 5px 14px;
+    }
+
+    .sidebar nav {
+        display: flex;
+        overflow-x: auto;
+    }
+
+    .nav-link {
+        white-space: nowrap;
+        padding: 10px;
+    }
+
+    .sidebar-bottom {
+        display: none;
+    }
+
+    .main {
+        margin: 0;
+        width: 100%;
+        padding: 0 14px;
+    }
+
+    .topbar {
+        height: 82px;
+        margin-bottom: 18px;
+    }
+
+    .topbar h1 {
+        font-size: 21px;
+    }
+
+    .topbar-right {
+        font-size: 10px;
+    }
+
+    .welcome {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 22px;
+    }
+
+    .welcome h2 {
+        font-size: 18px;
+    }
+
+    .stats-grid {
+        gap: 10px;
+    }
+
+    .stat-card {
+        padding: 14px;
+    }
+
+    .stat-card > strong {
+        font-size: 25px;
+    }
+
+    .stat-top {
+        font-size: 11px;
+    }
+
+    .panel {
+        padding: 16px 12px 10px;
+    }
+
+    .panel-heading {
+        align-items: flex-start;
+    }
+
+    .records-heading {
+        flex-direction: column;
+    }
+
+    .toolbar {
+        flex-direction: column;
+    }
+
+    .toolbar select {
+        width: 100%;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .form-panel {
+        padding: 18px 14px;
+    }
+}
